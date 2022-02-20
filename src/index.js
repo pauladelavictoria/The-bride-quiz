@@ -1,15 +1,13 @@
-
-
 // Importamos los dos módulos de NPM necesarios para trabajar
 const express = require("express");
 const cors = require("cors");
 
 // //Base de datos
-// const Database = require('better-sqlite3');
-// const db = new Database('./src/data/cards.db', { verbose: console.log });
+const Database = require("better-sqlite3");
+const db = new Database("./src/bbdd/TheBrideQuiz.db", { verbose: console.log });
 
 //importamos uuid
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 // Creamos el servidor
 const server = express();
@@ -22,7 +20,7 @@ server.use(express.json());
 server.use(cors());
 
 // para el motor de plantillas
-server.set('view engine', 'ejs');
+server.set("view engine", "ejs");
 
 // Arrancamos el servidor en el puerto 3000
 const serverPort = 4000;
@@ -31,8 +29,8 @@ server.listen(serverPort, () => {
 });
 
 //servidor de estáticos
-const staticServerPath = './src/public-react';
-const staticServerPathStyle = './src/public-css';
+const staticServerPath = "./src/public-react";
+const staticServerPathStyle = "./src/public-css";
 server.use(express.static(staticServerPath));
 server.use(express.static(staticServerPathStyle));
 
@@ -41,39 +39,34 @@ const hangman = require("../web/src/data/hangman.json");
 
 // endpoint para enviar los nombres de las participantes a la bbdd
 server.post("/playersPage", (req, res) => {
-  if (
-    req.body.name !== '') {
+  if (req.body.name !== "") {
     const newPlayer = {
       ...req.body,
       id: uuidv4(),
     };
     const local_host = `http://localhost:4000/playersPage`;
-    const insertData =
-      db.prepare(`INSERT INTO players(uuid, name) 
+    const insertData = db.prepare(`INSERT INTO players(uuid, name) 
     VALUES (?,?)`);
-    insertData.run(
-     newPlayer.name
-    );
+    insertData.run(newPlayer.id, newPlayer.name);
     const responseSuccess = {
       success: true,
+      playerData: newPlayer,
     };
 
     res.json(responseSuccess);
   } else {
     const responseError = {
       success: false,
-      cardURL: 'error',
+      playerData: "error",
     };
     res.json(responseError);
   }
 });
 
-
 // Palabras para el juego del ahorcado
 server.get("/Pruebas/Prueba3", (req, res) => {
   const response = {
-      success: true,
-      movies
-    };
+    success: true,
+  };
   res.json(response);
 });

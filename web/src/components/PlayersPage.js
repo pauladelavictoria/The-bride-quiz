@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Header from './Header';
+import ApiPlayers from '../service/ApiPlayers';
 
 
 const PlayersPage = () => {
   // Variables estado
-  const [players, setPlayers] = useState([{ name: "Juanca", id: "1" }]);
+  const [players, setPlayers] = useState([{ name: "", id: "" }]);
   const [newPlayerName, setNewPlayerName] = useState("");
 
-  console.log(players);
-  // Render new inputs
 
   // Guardar el nombre de las jugadoras
   const handleNewPlayer = (ev) => {
@@ -22,31 +22,25 @@ const PlayersPage = () => {
     setPlayers(filterPlayers);
   };
 
-  // Añadir jugadora
-  // const addPlayer = () => {
-  //   setPlayers([...players, {name: newPlayerName, id: new Date().toISOString()}]);
-  //   setNewPlayerName("");
-  // };
+  const addPlayer = (ev) => {
+    const newPlayer = {
+      name: newPlayerName
+    }
+    ev.preventDefault();
+    ApiPlayers(newPlayer).then((player) => {
+      setPlayers([
+        ...players,
+        player.playerData
+      ]
+        );
+    });
 
-//   const addPlayer = () => {
-// const newPlayer = {
-//   name: name,
-//   uuid: uuid
-// }
 
-// fetch('http://localhost:4000/playersPage',{
-//         method: 'POST',
-//         body: JSON.stringify(newPlayer),
-//         headers: {'content-Type': "application/json"}
-//     })
-//     .then(response => response.json())
-//     .then((data) => {
-//         return data;
-//     });
-  
+  };
 
   return (
     <div>
+<Header/>
       <h2 className="title">Players</h2>
       <ul>
         {players.map((player) => (
@@ -69,9 +63,9 @@ const PlayersPage = () => {
         placeholder="Ej: Falta"
       />
 
-      {/* <button className="addPlayer" onClick={addPlayer}>
+      <button className="addPlayer" onClick={addPlayer}>
         ➕
-      </button> */}
+      </button>
       <Link className="quiz_link" to="/">
         Volver al incio X
       </Link>

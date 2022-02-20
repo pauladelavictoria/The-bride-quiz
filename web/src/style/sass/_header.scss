@@ -1,6 +1,12 @@
-.header__title {
-    padding-bottom: 2rem;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-  }
+.header {
+ display: flex;
+justify-content: space-around;
+}
+
+.backBtn{
+    background-color: $btnColor;
+}
+
+body{
+    background-color: #F8E5F9;
+}

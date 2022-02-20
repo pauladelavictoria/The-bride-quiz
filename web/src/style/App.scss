@@ -1,10 +1,16 @@
-
+// CORE
 @import './core/reset';
-@import './sass/app';
-@import './sass/dummy';
-@import './sass/footer';
-@import './sass/form';
+@import './core/variables';
+
+// HEADER
 @import './sass/header';
-@import './sass/instructions';
-@import './sass/letters';
-@import './sass/loading';
+
+// PRUEBA3
+@import './sass/Prueba3/app';
+@import './sass/Prueba3/dummy';
+@import './sass/Prueba3/footer';
+@import './sass/Prueba3/form';
+@import './sass/Prueba3/header';
+@import './sass/Prueba3/instructions';
+@import './sass/Prueba3/letters';
+@import './sass/Prueba3/loading';

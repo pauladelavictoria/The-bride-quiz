@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Dummy from '../dummy';
-import SolutionLetters from '../SolutionLetters';
+import Dummy from '../Prueba3El/dummy';
+import SolutionLetters from '../Prueba3El/SolutionLetters';
 import callToApi from '../../service/CallToApi';
 
 
