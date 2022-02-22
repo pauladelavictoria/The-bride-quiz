@@ -1,26 +1,11 @@
-// COMMON STYLES
 
-.title {
-    display: block;
-    font-size: 1.25rem;
-    line-height: 1;
-    text-align: center;
+.main {
+  margin: 10px 15px;
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &_title{
+    color: $mainTextColor;
   }
-  
-  // PAGE
-  
-  .page {
-    padding: 2rem;
-    width: 100%;
-    min-height: 100vh;
-   
-    background-size: cover;
-    background-position: center center;
-  }
-  
-  // MAIN
-  
-  .main {
-    display: flex;
-    justify-content: center;
-  }
+}

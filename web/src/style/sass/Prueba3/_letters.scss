@@ -1,20 +1,42 @@
 .solution,
 .error {
-  margin-bottom: 3.75rem;
+  max-width: 380px;
+  margin: 20px;
+  display: flex;
+justify-content: space-between;
 }
 
-.letters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  min-height: 3.5625rem;
-
-  .letter {
-    margin: 0 0.25rem;
-    min-width: 1.5rem;
-    font-size: 2rem;
-    border-bottom: 3px solid black;
-    text-align: center;
+.error{
+  &_title{
+    color: $btnColor;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  &_flex{
+    display: flex;
+  flex-direction: column;
+  }
+  &_letters{
+    display: flex;
+  }
+  &_letter{
+margin-right: 5px;
+color: $mainTextColor;
+font-size: 20px;
+text-transform: uppercase;
   }
 }
+
+// Botón pista
+.clueBtn{
+  background-color: $btnColor;
+  padding: 15px;
+  border-radius: 20px;
+  color: $mainTextColor;
+  text-transform: uppercase;
+  box-shadow: 0px 5px rgb(213, 142, 98);
+  padding: 10px 16px;
+}
+
+
+

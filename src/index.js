@@ -63,10 +63,50 @@ server.post("/playersPage", (req, res) => {
   }
 });
 
+// endpoint para eliminar los nombres de las participantes a la bbdd
+server.delete("/playersPage", (req, res) => {
+  const query = db.prepare("DELETE FROM players WHERE name = ?");
+  const result = query.run(req.body.name);
+  res.json(result);
+});
+
+// endpoint para guardar los nombres de las participantes a la bbdd
+// //Endpoint perfil de usuario
+// server.post('/user/profile', (req, res) => {
+//   console.log('Petición a la ruta POST /user/profile');
+//   const userId = req.header('user-id');
+//   const query = db.prepare('UPDATE users SET name= ?, email = ?, password = ? WHERE id = ?');
+//   const result = query.run(req.body.name, req.body.email, req.body.password, userId);
+
+//   res.json({
+//     success: true,
+//   });
+// });
+
+// //Endpoint recuperar datos del perfil de usuario
+// server.get('/user/profile', (req, res) => {
+//   console.log('Petición a la ruta GET /user/profile');
+//   const userId = req.header('user-id');
+//   const query = db.prepare('SELECT name, email, password FROM users WHERE id=?');
+//   const result = query.get(userId);
+//   res.json(result);
+// });
+
 // Palabras para el juego del ahorcado
 server.get("/Pruebas/Prueba3", (req, res) => {
+  const queryWord = db.prepare("SELECT word, clue FROM hangman WHERE id= 1");
+
+  const newWord = query.get('?', '?');
+    
+  const newWord = {
+     word: word,
+     clue: clue
+    };
+
+  
   const response = {
     success: true,
+    newWord: newWord,
   };
   res.json(response);
 });

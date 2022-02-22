@@ -1,47 +1,63 @@
-import { useEffect, useState } from 'react';
-import Dummy from '../Prueba3El/dummy';
-import SolutionLetters from '../Prueba3El/SolutionLetters';
-import callToApi from '../../service/CallToApi';
-
-
+import { useState } from "react";
+// Componentes
+import Dummy from "../Prueba3El/dummy";
+import Header from "../Header";
+import SolutionLetters from "../Prueba3El/SolutionLetters";
+// API
+import ApiWords from "../../service/ApiWords";
 
 const Prueba3 = () => {
-    const [numberOfErrors, setNumberOfErrors] = useState(0);
+  const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState("");
   const [word, setWord] = useState("");
-
+  const [clue, setClue] = useState("");
 
   const [userLetters, setuserLetters] = useState([]);
   const [arrayNotInclude, setArrayNotInclude] = useState([]);
-
 
   // const renderWords = () => {
   //   return props.hangman.map((word) => {
   //    setWord(word.Word)
   //   })
   // }
-  
-  // Hay que hacer un FETCH que vaya cambiando la palabra clave
 
-// Función para letras acertadas
-  const renderSolutionLetters = (index) => {
-    const wordLetters = word.split('');
-  
-    return wordLetters.map(wordLetter => {
-   return  userLetters.includes(wordLetter) ? <li key={index} className="letter">{wordLetter}</li> : <li key={index} className="letter"></li>
+  const addWords = (ev) => {
+    const newWord = {
+      word: word,
+      clue: clue,
+    };
+    ev.preventDefault();
+    ApiWords(newWord).then((word) => {
+      setWord(newWord.word);
+      setWord(newWord.clue);
     });
   };
 
+  console.log(addWords);
 
+  // Función para letras acertadas
+  const renderSolutionLetters = (index) => {
+    const wordLetters = word.split("");
+
+    return wordLetters.map((wordLetter) => {
+      return userLetters.includes(wordLetter) ? (
+        <li key={index} className="letter">
+          {wordLetter}
+        </li>
+      ) : (
+        <li key={index} className="letter"></li>
+      );
+    });
+  };
 
   // Función manejadora del estado
   const handleKeyUp = (ev) => {
-  const inputLetter = ev.currentTarget.value;
+    const inputLetter = ev.currentTarget.value;
     if (inputLetter.match("^[a-zA-ZáäéëíïóöúüÁÄÉËÍÏÓÖÚÜñÑ]?$")) {
       setLastLetter(inputLetter);
       if (inputLetter !== "") {
         if (word.includes(inputLetter)) {
-          setuserLetters([...userLetters, inputLetter]); 
+          setuserLetters([...userLetters, inputLetter]);
         } else {
           setArrayNotInclude([...arrayNotInclude, inputLetter]);
           console.log(arrayNotInclude);
@@ -50,32 +66,23 @@ const Prueba3 = () => {
         }
       }
       // para que se borre el input
-      setTimeout(()=>{setLastLetter('')}, 500)
+      setTimeout(() => {
+        setLastLetter("");
+      }, 500);
     }
   };
-    
-    
-    return (
-        <div className="page">
-             <header>
-        <h1 className="header__title">Juego del ahorcado</h1>
-        <h2 className="header__title-sec">¿Quién ha hecho qué?</h2>
-      </header>
+
+  return (
+    <div className="page">
+      <Header />
+
       <main className="main">
+        <h1 className="main_title">Ahogada</h1>
+
+        {/* FALTA EL TURNO */}
         <section>
-         < SolutionLetters renderSolutionLetters={renderSolutionLetters} /> 
-          <div className="error">
-            <h2 className="title">Letras falladas:</h2>
-            <ul className="letters">
-              {arrayNotInclude.map((eachLetter, index) => {
-                return (
-                  <li key={index} className="letter">
-                    {eachLetter}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
+
           <form className="form">
             <label className="title" htmlFor="last-letter">
               Escribe una letra:
@@ -92,10 +99,26 @@ const Prueba3 = () => {
             />
           </form>
         </section>
-        < Dummy numberOfErrors={numberOfErrors}/>
+        <Dummy numberOfErrors={numberOfErrors} />
       </main>
+      {/* Error */}
+      <div className="error">
+        <div className="error_flex">
+          <h2 className="error_title">Letras falladas:</h2>
+          <ul className="error_letters">
+            {arrayNotInclude.map((eachLetter, index) => {
+              return (
+                <li key={index} className="error_letter">
+                  {eachLetter}
+                </li>
+              );
+            })}
+          </ul>
         </div>
-    );
+        <button className="clueBtn">Pista!</button>
+      </div>
+    </div>
+  );
 };
 
 export default Prueba3;

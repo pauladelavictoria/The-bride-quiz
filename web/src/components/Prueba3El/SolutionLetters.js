@@ -1,9 +1,7 @@
 
 const SolutionLetters = (props) => {
     return (
-<div className="solution">
-            <h2 className="title">Solución:</h2>
-            
+<div className="solution">            
             <ul className="letters">
             {props.renderSolutionLetters()}
             </ul>

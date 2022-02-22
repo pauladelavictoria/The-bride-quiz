@@ -5,13 +5,13 @@ const Header = () => {
   return (
     <section className="header">
       <img
-        className="logo"
+        className="header_logo"
         src={logoHeader}
         alt="Logo The Bride Quiz"
       />
-      <Link to="/card">
-        <button className="backBtn">  <img
-        className="BackBtn_img"
+      <Link to="/">
+        <button className="header_backBtn">  <img
+        className="header_backBtn-img"
         src={home}
         alt="Volver atrás"
       /></button>
