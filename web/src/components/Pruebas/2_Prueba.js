@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Link, Router} from "react-router-dom";
 import truthsOrDares from '../../data/truthsOrDares'
+import Header from '../Header';
 
 // Meterlas dentro de un json y que las traiga cada vez que se pulsa el botón?
 
@@ -31,6 +32,7 @@ const [showDare, setShowDare] = useState(false);
 
     return (
         <div>
+             <Header />
             <h2>verdad o atrevimiento</h2>
 
         <button onClick={renderTrue}>Verdad</button>

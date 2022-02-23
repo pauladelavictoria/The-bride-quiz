@@ -12,8 +12,7 @@ import Prueba3 from "./Pruebas/3_Prueba";
 
 const App = () => {
   return (
-    <div >
-
+<>
         <Switch>
           <Route path="/Pruebas/Prueba1" exact>
             <Prueba1 />
@@ -35,7 +34,7 @@ const App = () => {
           </Route>
         </Switch>
       
-      </div>
+      </>
   );
 };
 

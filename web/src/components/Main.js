@@ -43,8 +43,7 @@ const Main = () => {
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
             velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus quam corporis porro dicta
-            doloribus provident iure expedita ex!
+            rerum doloremque maxime a delectus
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba3">
             <button className="containerGame_btn">Jugar</button>
@@ -56,8 +55,7 @@ const Main = () => {
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
             velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus quam corporis porro dicta
-            doloribus provident iure expedita ex!
+            rerum doloremque maxime a delectus
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba1">
             <button className="containerGame_btn">Jugar</button>
@@ -69,8 +67,7 @@ const Main = () => {
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
             velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus quam corporis porro dicta
-            doloribus provident iure expedita ex!
+            rerum doloremque maxime a delectus
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba2">
             <button className="containerGame_btn">Jugar</button>

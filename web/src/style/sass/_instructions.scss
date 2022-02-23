@@ -1,0 +1,13 @@
+.instructions{
+    @include flexColumn;
+    &_text{
+        font-size: 20px;
+        margin: 25px 15px;
+    }
+    &_btn{
+        @include btn;
+        margin: 5px;
+        padding: 10px 15px;
+    }
+}
+

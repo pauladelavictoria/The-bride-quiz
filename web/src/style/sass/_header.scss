@@ -8,13 +8,7 @@
     width: 60%;
   }
   &_backBtn {
-    background-color: $btnColor;
-    padding: 15px;
-    border-radius: 20px;
-    color: $mainTextColor;
-    text-transform: uppercase;
-    box-shadow: 0px 5px rgb(213, 142, 98);
-    padding: 10px 6px;
+    @include btn;
     &-img {
       width: 40%;
     }

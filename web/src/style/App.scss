@@ -1,12 +1,16 @@
 // CORE
 @import './core/reset';
 @import './core/variables';
+@import './core/mixins';
 
 // HEADER
 @import './sass/header';
 
 // MAIN
 @import './sass/main';
+
+// INSTRUCTIONS
+@import './sass/instructions';
 
 // PRUEBA3
 @import './sass/Prueba3/app';

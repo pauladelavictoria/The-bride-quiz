@@ -76,8 +76,8 @@ const Prueba3 = () => {
     <div className="page">
       <Header />
 
-      <main className="main">
-        <h1 className="main_title">Ahogada</h1>
+      <main className="container">
+        <h1 className="container_title">Ahogada</h1>
 
         {/* FALTA EL TURNO */}
         <section>
