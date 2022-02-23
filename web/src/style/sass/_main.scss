@@ -18,12 +18,14 @@
   justify-content: space-around;
   margin: 100px auto;
   &_menu {
-   width: 40px;
+    width: 40px;
   }
 }
 
 // Tarjetas de juego
 .containerGame {
+  position: absolute;
+
   background-color: white;
   width: 250px;
   display: flex;
@@ -33,7 +35,7 @@
   padding: 20px;
   border-radius: 20px;
   box-shadow: 5px 5px 15px 6px rgba(0, 0, 0, 0.2);
-
+  transition: transform 300ms linear;
   &_title {
     font-size: 30px;
     text-align: center;
@@ -57,8 +59,8 @@
 
 // Posición de las tarjetas
 .containerCards {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  height: 400px;
 }
 .containerGame.center {
   z-index: 1;
@@ -68,23 +70,23 @@
   background: linear-gradient(
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
-  ),;
+  );
   box-sizing: content-box;
   width: 200px;
-  transform: rotate(-15deg) translate(130px, 60px);
+  transform: rotate(-15deg) translate(-190px, 10px);
 }
 
 .containerGame.right {
   background: linear-gradient(
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
-  ),;
+  );
   box-sizing: content-box;
   width: 200px;
-  transform: rotate(15deg) translate(-130px, 60px);
+  transform: rotate(15deg) translate(190px, 10px);
 }
 
-.selectBtn{
+.selectBtn {
   font-size: 60px;
   background-color: $mainColor;
   color: $mainTextColor;

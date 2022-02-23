@@ -1,17 +1,35 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 // Imágenes
 import Logo from "../images/logo-big.png";
 import menu from "../images/menu.png";
 import players from "../images/players.png";
 
 const Main = () => {
-  const [selectedCard, setSelectedCard] = useState("2");
+  const [selectedCard, setSelectedCard] = useState(0);
 
-  const selectOne = (ev) => {setSelectedCard("1")};
-  const selectTwo = (ev) => {setSelectedCard("2")};
-  const selectThree = (ev) => {setSelectedCard("3")};
+  const selectNext = (ev) => {setSelectedCard(selectedCard + 1 > 2 ? 0 : selectedCard + 1)};
+  const selectPrevious = (ev) => {setSelectedCard(selectedCard - 1 < 0 ? 2 : selectedCard - 1)};
 
+  const classPosition0 = useRef('center')
+  const classPosition1 = useRef('right')
+  const classPosition2 = useRef('left')
+  useEffect(() => {
+    if (selectedCard === 0) {
+      classPosition0.current = 'center'
+      classPosition1.current = 'right'
+      classPosition2.current = 'left'
+    } else if (selectedCard === 1) {
+      classPosition0.current = 'left'
+      classPosition1.current = 'center'
+      classPosition2.current = 'right'
+    } else {
+      classPosition0.current = 'right'
+      classPosition1.current = 'left'
+      classPosition2.current = 'center'
+    }
+
+    }, [selectedCard]);
 
   return (
     <div className="main">
@@ -20,7 +38,7 @@ const Main = () => {
 
       {/* Tarjetas pruebas */}
       <div className="containerCards">
-        <section className="containerGame left">
+        <section className={`containerGame ${classPosition0.current}`}>
           <h2 className="containerGame_title">Juego de la ahogada</h2>
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
@@ -33,7 +51,7 @@ const Main = () => {
           </Link>
         </section>
 
-        <section className="containerGame center">
+        <section className={`containerGame ${classPosition1.current}`}>
           <h2 className="containerGame_title">¿Cuánto sabes sobre bodas?</h2>
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
@@ -46,7 +64,7 @@ const Main = () => {
           </Link>
         </section>
 
-        <section className="containerGame right">
+        <section className={`containerGame ${classPosition2.current}`}>
           <h2 className="containerGame_title">Verdad o Atrevimiento</h2>
           <p className="containerGame_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
@@ -71,9 +89,8 @@ const Main = () => {
         </Link>
 
         <div>
-          <button className="selectBtn" onClick={selectOne}>·</button>
-          <button className="selectBtn" onClick={selectTwo}>·</button>
-          <button className="selectBtn" onClick={selectThree}>·</button>
+          <button className="selectBtn" onClick={selectPrevious}> &#60;</button>
+          <button className="selectBtn" onClick={selectNext}> &#62;</button>
         </div>
 
         <Link className="playersPage_link" to="/playersPage">
