@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from './Header';
-import {createPlayer, deletePlayer, getPlayers} from '../service/ApiPlayers';
-
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "./Header";
+import { createPlayer, deletePlayer, getPlayers } from "../service/ApiPlayers";
 
 const PlayersPage = () => {
   // Variables estado
   const [players, setPlayers] = useState([]);
   const [newPlayerName, setNewPlayerName] = useState("");
-
 
   // Guardar el nombre de las jugadoras
   const handleNewPlayer = (ev) => {
@@ -17,65 +15,69 @@ const PlayersPage = () => {
 
   useEffect(() => {
     getPlayers().then((response) => {
-      setPlayers(response)
-    })
-    }, []);
-
+      setPlayers(response);
+    });
+  }, []);
 
   // Eliminar jugadora
   const handleDeletePlayer = (ev) => {
-    deletePlayer({id: ev.currentTarget.id}).then((response) => {
-      setPlayers(players.filter((player) => {
-        return player.id !== response.id
-      }));
+    deletePlayer({ id: ev.currentTarget.id }).then((response) => {
+      setPlayers(
+        players.filter((player) => {
+          return player.id !== response.id;
+        })
+      );
     });
   };
 
   const addPlayer = (ev) => {
     const newPlayer = {
-      name: newPlayerName
-    }
+      name: newPlayerName,
+    };
     ev.preventDefault();
     createPlayer(newPlayer).then((player) => {
-      setPlayers([
-        ...players,
-        player.playerData
-      ]
-        );
+      setPlayers([...players, player.playerData]);
     });
   };
 
   return (
-    <div>
-      <Header/>
-      <h2 className="title">Players</h2>
-      <ul>
+    <div className="players">
+      <Header />
+      <h2 className="players_title">Players</h2>
+      <ul className="players_list">
         {players.map((player) => (
-          <li key={player.id}>
-            <p>{player.name}</p>
-            <button id={player.id} className="deletePlayer" onClick={handleDeletePlayer}>
-              ➖
+          <li className="players_list-player" key={player.id}>
+            <p className="players_list-text">{player.name}</p>
+            <button
+              id={player.id}
+              className="players_list-btn"
+              onClick={handleDeletePlayer}
+            >
+              -
             </button>
           </li>
         ))}
       </ul>
 
-      <label htmlFor="NewPlayer">Añade una nueva jugadora:</label>
-      <input
-        value={newPlayerName}
-        onChange={handleNewPlayer}
-        type="text"
-        id="NewPlayer"
-        name="NewPlayer"
-        placeholder="Ej: Falta"
-      />
-
-      <button className="addPlayer" onClick={addPlayer}>
-        ➕
-      </button>
-      <Link className="quiz_link" to="/">
-        Volver al incio X
-      </Link>
+      <div className="players_addPlayer">
+        <label htmlFor="NewPlayer" className="players_addPlayer-title">
+          Añade una nueva jugadora:
+        </label>
+        <div className="players_addPlayer-container">
+        <input
+          className="players_addPlayer-input"
+          value={newPlayerName}
+          onChange={handleNewPlayer}
+          type="text"
+          id="NewPlayer"
+          name="NewPlayer"
+          placeholder="Ej: Falta"
+        />
+        <button className="players_addPlayer-btn" onClick={addPlayer}>
+          +
+        </button>
+        </div>
+      </div>
     </div>
   );
 };

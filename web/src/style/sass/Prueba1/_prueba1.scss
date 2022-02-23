@@ -1,0 +1,22 @@
+.container{
+&_questions{
+    color: $mainTextColor;
+    margin: 15px;
+    text-align: center;
+}
+&_answers{
+    @include flexColumn;
+    margin: 15px;
+}
+&_answers{
+    border-radius: 20px;
+    color: $mainTextColor;
+    border: 1px solid $btnColor;
+    padding: 5px 15px;
+}
+}
+
+.nextBtn{
+    @include btn;
+    margin-top: 10px;
+}

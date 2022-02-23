@@ -7,7 +7,7 @@
 
 // logo
 .logoBig {
-  width: 60%;
+  width: 40%;
   margin: 20px auto;
 }
 
@@ -17,33 +17,32 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 100px auto;
+  margin: 60px auto;
   &_menu {
-    width: 40px;
+    width: 30px;
   }
 }
 
 // Tarjetas de juego
 .containerGame {
+  @include flexColumn;
   position: absolute;
   background-color: white;
-  width: 250px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
+  width: 200px;
+  height: 250px;
+  margin: 20px auto;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 5px 5px 15px 6px rgba(0, 0, 0, 0.2);
   transition: transform 300ms linear;
   &_title {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     color: $mainTextColor;
   }
   &_text {
     margin: 20px auto;
+    font-size: 10px;
     color: rgb(169, 166, 166);
     text-align: center;
     flex: 1;
@@ -69,7 +68,7 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
   );
-  transform: rotate(-15deg) translate(-190px, 10px);
+  transform: rotate(-15deg) translate(-150px, 10px);
 }
 
 .containerGame.right {
@@ -77,11 +76,12 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
   );
-  transform: rotate(15deg) translate(190px, 10px);
+  transform: rotate(15deg) translate(150px, 10px);
 }
 
 .selectBtn {
-  font-size: 60px;
+  font-size: 30px;
+  margin: 5px;
   background-color: $mainColor;
   color: $mainTextColor;
 }

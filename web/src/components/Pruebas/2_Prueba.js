@@ -31,24 +31,21 @@ const [showDare, setShowDare] = useState(false);
 
 
     return (
-        <div>
+        <div className="container">
              <Header />
-            <h2>verdad o atrevimiento</h2>
+            <h2 className="container_title">verdad o atrevimiento</h2>
 
-        <button onClick={renderTrue}>Verdad</button>
-       {showTruth && (<p>
+        <button className="container_btn" onClick={renderTrue}>Verdad</button>
+       {showTruth && (<p className="container_text">
         {truthsOrDares[currentDare].truth}
             </p>)}
 
-        <button onClick={renderDare}>Atrevimiento</button>
-        {showDare && (<p>
+        <button  className="container_btn" onClick={renderDare}>Atrevimiento</button>
+        {showDare && (<p className="container_text">
             {truthsOrDares[currentDare].dare}
             </p>)}
 
-        {(showTruth || showDare) && <button onClick={nextDare}>Siguiente Reto</button>}
-
-
-            {/* <Link className="link" to="/Prueba2/segunda"> siguiente prueba </Link> */}
+        {(showTruth || showDare) && <button className="container_btn-next" onClick={nextDare}>Siguiente Reto</button>}
 
 
         </div>

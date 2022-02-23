@@ -1,0 +1,44 @@
+.players {
+  &_title {
+    font-size: 25px;
+    color: $mainTextColor;
+    text-align: center;
+    margin: 15px auto;
+  }
+  &_list {
+    &-player {
+      display: flex;
+      flex-direction: row;
+      margin: 5px 15px;
+      padding: 0 5px;
+    }
+    &-text {
+      margin-right: 15px;
+      margin-left: 25px;
+    }
+    &-btn {
+      border-radius: 20px;
+      color: $mainTextColor;
+      border: 1px solid $btnColor;
+      padding: 0 5px;
+    }
+  }
+}
+
+.players_addPlayer {
+  @include flexColumn;
+  margin: 10px;
+  &-title {
+    color: $mainTextColor;
+  }
+  &-input {
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 7px;
+    margin-top: 10px;
+  }
+  &-btn {
+    @include btn;
+    padding: 3px 10px;
+  }
+}

@@ -27,6 +27,8 @@ const Prueba1 = () => {
         <h2 className="container_questions">
           {questions[currentQuestion].questionText}
         </h2>
+
+        <div className="container_answers">
         {questions[currentQuestion].answerOptions.map((answerOption, index) => {
           return (
             <button
@@ -46,8 +48,8 @@ const Prueba1 = () => {
           ) : (
             <p>Oh... Has fallado, te toca beber un chupito</p>
           ))}
-
-        <button onClick={nextDare}>Siguiente pregunta</button>
+</div>
+        <button className="nextBtn" onClick={nextDare}>Siguiente pregunta</button>
       </div>
     </div>
   );
