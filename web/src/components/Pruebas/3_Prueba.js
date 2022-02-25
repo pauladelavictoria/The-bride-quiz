@@ -1,43 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Componentes
 import Dummy from "../Prueba3El/dummy";
 import Header from "../Header";
 import SolutionLetters from "../Prueba3El/SolutionLetters";
 // API
-import ApiWords from "../../service/ApiWords";
+import {getWords} from "../../service/ApiWords";
 
 const Prueba3 = () => {
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState("");
-  const [word, setWord] = useState("");
+  const [words, setWords] = useState([]);
   const [clue, setClue] = useState("");
 
   const [userLetters, setuserLetters] = useState([]);
   const [arrayNotInclude, setArrayNotInclude] = useState([]);
 
-  // const renderWords = () => {
-  //   return props.hangman.map((word) => {
-  //    setWord(word.Word)
-  //   })
-  // }
-
-  const addWords = (ev) => {
-    const newWord = {
-      word: word,
-      clue: clue,
-    };
-    ev.preventDefault();
-    ApiWords(newWord).then((word) => {
-      setWord(newWord.word);
-      setWord(newWord.clue);
+  useEffect(() => {
+    getWords().then((response) => {
+      setWords(response);
     });
-  };
+  }, []);
 
-  console.log(addWords);
+  console.log(words);
+
 
   // Función para letras acertadas
   const renderSolutionLetters = (index) => {
-    const wordLetters = word.split("");
+    const wordLetters = words.split("");
 
     return wordLetters.map((wordLetter) => {
       return userLetters.includes(wordLetter) ? (
@@ -56,7 +45,7 @@ const Prueba3 = () => {
     if (inputLetter.match("^[a-zA-ZáäéëíïóöúüÁÄÉËÍÏÓÖÚÜñÑ]?$")) {
       setLastLetter(inputLetter);
       if (inputLetter !== "") {
-        if (word.includes(inputLetter)) {
+        if (words.includes(inputLetter)) {
           setuserLetters([...userLetters, inputLetter]);
         } else {
           setArrayNotInclude([...arrayNotInclude, inputLetter]);
@@ -81,7 +70,7 @@ const Prueba3 = () => {
 
         {/* FALTA EL TURNO */}
         <section>
-          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
+          {/* <SolutionLetters renderSolutionLetters={renderSolutionLetters} /> */}
 
           <form className="form">
             <label className="title" htmlFor="last-letter">

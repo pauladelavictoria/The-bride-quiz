@@ -16,9 +16,6 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-// Configuramos el servidor
-server.use(cors());
-
 // para el motor de plantillas
 server.set("view engine", "ejs");
 
@@ -34,8 +31,6 @@ const staticServerPathStyle = "./src/public-css";
 server.use(express.static(staticServerPath));
 server.use(express.static(staticServerPathStyle));
 
-// Importar JSON
-const hangman = require("../web/src/data/hangman.json");
 
 // endpoint para enviar los nombres de las participantes a la bbdd
 server.post("/players", (req, res) => {
@@ -70,25 +65,17 @@ server.delete("/players", (req, res) => {
   res.json({id: req.body.id});
 });
 
+// endpoint para cargar todas las jugadoras al iniciar
 server.get("/players", (req, res) => {
   const query = db.prepare("SELECT * from players");
   const result = query.all();
   res.json(result);
 });
 
+// endpoint para las palabras del juego 3
+server.get("/hangmanwords", (req, res) => {
+  const query = db.prepare("SELECT * from hangman");
+  const result = query.all();
+  res.json(result);
+});
 
-
-//   const getWord = query.get('?', '?');
-    
-//   const newWord = {
-//      word: word,
-//      clue: clue
-//     };
-
-  
-//   const response = {
-//     success: true,
-//     newWord: newWord,
-//   };
-//   res.json(response);
-// });
