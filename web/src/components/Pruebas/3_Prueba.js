@@ -4,31 +4,31 @@ import Dummy from "../Prueba3El/dummy";
 import Header from "../Header";
 import SolutionLetters from "../Prueba3El/SolutionLetters";
 // API
-import {getWords} from "../../service/ApiWords";
+import { getWords } from "../../service/ApiWords";
 
 const Prueba3 = () => {
+  // Variables estado
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState("");
   const [words, setWords] = useState([]);
-  const [clue, setClue] = useState("");
+  const [currentWord, setCurrentWord] = useState(0);
+  const [showClue, setShowClue] = useState(false);
 
   const [userLetters, setuserLetters] = useState([]);
   const [arrayNotInclude, setArrayNotInclude] = useState([]);
 
+  // useEffect para traer las palabras y pistas de la bbdd al cargar la página
   useEffect(() => {
     getWords().then((response) => {
       setWords(response);
     });
   }, []);
 
-  console.log(words);
-
-
   // Función para letras acertadas
   const renderSolutionLetters = (index) => {
-    const wordLetters = words.split("");
+    const wordLetters = words[currentWord]?.word.split("");
 
-    return wordLetters.map((wordLetter) => {
+    return wordLetters?.map((wordLetter) => {
       return userLetters.includes(wordLetter) ? (
         <li key={index} className="letter">
           {wordLetter}
@@ -45,7 +45,7 @@ const Prueba3 = () => {
     if (inputLetter.match("^[a-zA-ZáäéëíïóöúüÁÄÉËÍÏÓÖÚÜñÑ]?$")) {
       setLastLetter(inputLetter);
       if (inputLetter !== "") {
-        if (words.includes(inputLetter)) {
+        if (words[currentWord]?.word.includes(inputLetter)) {
           setuserLetters([...userLetters, inputLetter]);
         } else {
           setArrayNotInclude([...arrayNotInclude, inputLetter]);
@@ -54,11 +54,23 @@ const Prueba3 = () => {
           setNumberOfErrors(numberOfErrors + 1);
         }
       }
-      // para que se borre el input
+
+      
+      // Timer para que se borre el input
       setTimeout(() => {
         setLastLetter("");
       }, 500);
     }
+  };
+
+  // Mostrar la pista
+  const toggleShowClue = () => {
+    setShowClue(!showClue);
+  };
+
+  // Siguiente palabra
+  const nextWord = () => {
+    setCurrentWord(currentWord + 1);
   };
 
   return (
@@ -70,16 +82,14 @@ const Prueba3 = () => {
 
         {/* FALTA EL TURNO */}
         <section>
-          {/* <SolutionLetters renderSolutionLetters={renderSolutionLetters} /> */}
+          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
 
           <form className="form">
-            <label className="title" htmlFor="last-letter">
-              Escribe una letra:
-            </label>
             <input
               autoComplete="off"
               className="form__input"
               maxLength="1"
+              autoFocus
               type="text"
               name="last-letter"
               id="last-letter"
@@ -104,7 +114,16 @@ const Prueba3 = () => {
             })}
           </ul>
         </div>
-        <button className="clueBtn">Pista!</button>
+        <button onClick={toggleShowClue} className="clueBtn">
+          Pista!
+        </button>
+        {showClue && (<p className="container_text">
+            {words[currentWord]?.clue}
+            </p>)}
+        <button onClick={nextWord} className="clueBtn">
+          Siguiente palabra
+        </button> 
+        {/* FALTA */}
       </div>
     </div>
   );

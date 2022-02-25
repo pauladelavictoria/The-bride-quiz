@@ -3,8 +3,6 @@ import {Link, Router} from "react-router-dom";
 import truthsOrDares from '../../data/truthsOrDares'
 import Header from '../Header';
 
-// Meterlas dentro de un json y que las traiga cada vez que se pulsa el botón?
-
 const Prueba2 = () => {
     // variables estado
 const [currentDare, setCurrentDare] = useState(0)
@@ -23,6 +21,7 @@ const [showDare, setShowDare] = useState(false);
     setShowDare(!showDare);
   };
 
+  // Siguiente reto
   const nextDare = () => {
     setCurrentDare(currentDare + 1);
     setShowTrue(false);
