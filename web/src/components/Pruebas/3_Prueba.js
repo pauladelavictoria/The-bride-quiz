@@ -55,7 +55,6 @@ const Prueba3 = () => {
         }
       }
 
-      
       // Timer para que se borre el input
       setTimeout(() => {
         setLastLetter("");
@@ -73,14 +72,77 @@ const Prueba3 = () => {
     setCurrentWord(currentWord + 1);
   };
 
+  // Final del juego
+  console.log(currentWord);
+  console.log(words.length);
+
+  const finalDare = () => {
+    if (currentWord < words.length) {
+      return (
+        <>
+          <main className="container">
+            <h1 className="container_title">Ahogada</h1>
+
+            <section>
+              <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
+
+              <form className="form">
+                <input
+                  autoComplete="off"
+                  className="form__input"
+                  maxLength="1"
+                  autoFocus
+                  type="text"
+                  name="last-letter"
+                  id="last-letter"
+                  onChange={handleKeyUp}
+                  value={lastLetter}
+                />
+              </form>
+            </section>
+            <Dummy numberOfErrors={numberOfErrors} />
+          </main>
+          <div className="error">
+            <div className="error_flex">
+              <h2 className="error_title">Letras falladas:</h2>
+              <ul className="error_letters">
+                {arrayNotInclude.map((eachLetter, index) => {
+                  return (
+                    <li key={index} className="error_letter">
+                      {eachLetter}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <button onClick={toggleShowClue} className="clueBtn">
+              Pista!
+            </button>
+            {showClue && (
+              <p className="container_text">{words[currentWord]?.clue}</p>
+            )}
+            <button onClick={nextWord} className="clueBtn">
+              Siguiente palabra
+            </button>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <div>
+          <p className="finalText">¡Has llegado al final del juego!</p>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="page">
       <Header />
-
-      <main className="container">
+      {finalDare()}
+      {/* <main className="container">
         <h1 className="container_title">Ahogada</h1>
 
-        {/* FALTA EL TURNO */}
         <section>
           <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
 
@@ -100,7 +162,6 @@ const Prueba3 = () => {
         </section>
         <Dummy numberOfErrors={numberOfErrors} />
       </main>
-      {/* Error */}
       <div className="error">
         <div className="error_flex">
           <h2 className="error_title">Letras falladas:</h2>
@@ -123,8 +184,8 @@ const Prueba3 = () => {
         <button onClick={nextWord} className="clueBtn">
           Siguiente palabra
         </button> 
-        {/* FALTA */}
-      </div>
+       
+      </div> */}
     </div>
   );
 };

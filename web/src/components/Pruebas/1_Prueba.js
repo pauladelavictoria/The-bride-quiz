@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 // Componentes
 import Header from "../Header";
 import questions from "../../data/questions";
-// Imágenes
-import home from "../../images/home.png";
+
 
 const Prueba1 = () => {
   // Preguntas y respuestas
@@ -30,7 +29,7 @@ const Prueba1 = () => {
 
   // Final de las pruebas
   const finalDare = () => {
-    if (currentQuestion <= questions.length) {
+    if (currentQuestion < questions.length) {
       return (
         <div className="container">
           <h2 className="container_questions">
@@ -69,16 +68,6 @@ const Prueba1 = () => {
       return (
         <div className="container">
           <p className="finalText">¡Has llegado al final del juego!</p>
-          <Link to="/">
-            <button className="header_backBtn">
-              {" "}
-              <img
-                className="header_backBtn-img"
-                src={home}
-                alt="Volver atrás"
-              />
-            </button>
-          </Link>
         </div>
       );
     }
@@ -86,7 +75,8 @@ const Prueba1 = () => {
 
   return (
     <div>
-      {finalDare}
+      <Header/>
+      {finalDare()}
       {/* <Header/>
       <div className="container">
         <h2 className="container_questions">

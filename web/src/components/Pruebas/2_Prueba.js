@@ -1,11 +1,9 @@
 // Hooks
 import { useState } from "react";
-import { Link } from "react-router-dom";
 // Componentes
 import truthsOrDares from "../../data/truthsOrDares";
 import Header from "../Header";
-// Imágenes
-import home from "../../images/home.png";
+
 
 const Prueba2 = () => {
   // variables estado
@@ -67,16 +65,6 @@ const Prueba2 = () => {
       return (
         <div>
           <p className="finalText">¡Has llegado al final del juego!</p>
-          <Link to="/">
-            <button className="header_backBtn">
-              {" "}
-              <img
-                className="header_backBtn-img"
-                src={home}
-                alt="Volver atrás"
-              />
-            </button>
-          </Link>
         </div>
       );
     }
