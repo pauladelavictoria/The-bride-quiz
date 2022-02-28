@@ -1,13 +1,13 @@
+// Hooks
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// Componentes
 import Header from "./Header";
 import { createPlayer, deletePlayer, getPlayers } from "../service/ApiPlayers";
 
-const PlayersPage = () => {
+const PlayersPage = (props) => {
   // Variables estado
-  const [players, setPlayers] = useState([]);
   const [newPlayerName, setNewPlayerName] = useState("");
-
+  
   // Guardar el nombre de las jugadoras
   const handleNewPlayer = (ev) => {
     setNewPlayerName(ev.currentTarget.value);
@@ -15,15 +15,15 @@ const PlayersPage = () => {
 
   useEffect(() => {
     getPlayers().then((response) => {
-      setPlayers(response);
+      props.setPlayers(response);
     });
   }, []);
 
   // Eliminar jugadora
   const handleDeletePlayer = (ev) => {
     deletePlayer({ id: ev.currentTarget.id }).then((response) => {
-      setPlayers(
-        players.filter((player) => {
+      props.setPlayers(
+        props.players.filter((player) => {
           return player.id !== response.id;
         })
       );
@@ -36,7 +36,7 @@ const PlayersPage = () => {
     };
     ev.preventDefault();
     createPlayer(newPlayer).then((player) => {
-      setPlayers([...players, player.playerData]);
+      props.setPlayers([...props.players, player.playerData]);
     });
   };
 
@@ -45,7 +45,7 @@ const PlayersPage = () => {
       <Header />
       <h2 className="players_title">Players</h2>
       <ul className="players_list">
-        {players.map((player) => (
+        {props.players.map((player) => (
           <li className="players_list-player" key={player.id}>
             <p className="players_list-text">{player.name}</p>
             <button

@@ -1,12 +1,10 @@
 // Hooks
 import { useState } from "react";
-import { Link } from "react-router-dom";
 // Componentes
 import Header from "../Header";
 import questions from "../../data/questions";
 
-
-const Prueba1 = () => {
+const Prueba1 = (props) => {
   // Preguntas y respuestas
   const [correctAnswer, setCorrectAnwser] = useState(undefined);
 
@@ -22,16 +20,18 @@ const Prueba1 = () => {
   const nextDare = () => {
     setCurrentQuestion(currentQuestion + 1);
     setCorrectAnwser(undefined);
+    props.setCurrentPlayer(props.currentPlayer +1);
   };
 
-  console.log(currentQuestion);
-  console.log(questions.length);
+
+  
 
   // Final de las pruebas
   const finalDare = () => {
     if (currentQuestion < questions.length) {
       return (
         <div className="container">
+        {props.nextPlayer()}  
           <h2 className="container_questions">
             {questions[currentQuestion].questionText}
           </h2>
@@ -75,7 +75,7 @@ const Prueba1 = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       {finalDare()}
       {/* <Header/>
       <div className="container">
