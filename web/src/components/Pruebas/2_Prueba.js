@@ -1,21 +1,25 @@
+// Hooks
 import { useState } from "react";
-import {Link, Router} from "react-router-dom";
-import truthsOrDares from '../../data/truthsOrDares'
-import Header from '../Header';
+import { Link } from "react-router-dom";
+// Componentes
+import truthsOrDares from "../../data/truthsOrDares";
+import Header from "../Header";
+// Imágenes
+import home from "../../images/home.png";
 
 const Prueba2 = () => {
-    // variables estado
-const [currentDare, setCurrentDare] = useState(0)
+  // variables estado
+  const [currentDare, setCurrentDare] = useState(0);
 
-// Mostrar verdad
-const [showTruth, setShowTrue] = useState(false);
+  // Mostrar verdad
+  const [showTruth, setShowTrue] = useState(false);
 
   const renderTrue = () => {
     setShowTrue(!showTruth);
   };
 
-//   Mostrar reto
-const [showDare, setShowDare] = useState(false);
+  //   Mostrar reto
+  const [showDare, setShowDare] = useState(false);
 
   const renderDare = () => {
     setShowDare(!showDare);
@@ -28,10 +32,61 @@ const [showDare, setShowDare] = useState(false);
     setShowDare(false);
   };
 
+  // Final de la prueba
+  console.log(currentDare);
+  console.log(truthsOrDares);
 
-    return (
+  const finalDare = () => {
+    if (currentDare < truthsOrDares.length) {
+      return (
         <div className="container">
-             <Header />
+          <h2 className="container_title">verdad o atrevimiento</h2>
+
+          <button className="container_btn" onClick={renderTrue}>
+            Verdad
+          </button>
+          {showTruth && (
+            <p className="container_text">{truthsOrDares[currentDare].truth}</p>
+          )}
+
+          <button className="container_btn" onClick={renderDare}>
+            Atrevimiento
+          </button>
+          {showDare && (
+            <p className="container_text">{truthsOrDares[currentDare].dare}</p>
+          )}
+
+          {(showTruth || showDare) && (
+            <button className="container_btn-next" onClick={nextDare}>
+              Siguiente Reto
+            </button>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p className="finalText">¡Has llegado al final del juego!</p>
+          <Link to="/">
+            <button className="header_backBtn">
+              {" "}
+              <img
+                className="header_backBtn-img"
+                src={home}
+                alt="Volver atrás"
+              />
+            </button>
+          </Link>
+        </div>
+      );
+    }
+  };
+
+  return (
+    <div className="container">
+      <Header />
+      {finalDare()}
+      {/* <Header />
             <h2 className="container_title">verdad o atrevimiento</h2>
 
         <button className="container_btn" onClick={renderTrue}>Verdad</button>
@@ -44,11 +99,9 @@ const [showDare, setShowDare] = useState(false);
             {truthsOrDares[currentDare].dare}
             </p>)}
 
-        {(showTruth || showDare) && <button className="container_btn-next" onClick={nextDare}>Siguiente Reto</button>}
-
-
-        </div>
-    );
+        {(showTruth || showDare) && <button className="container_btn-next" onClick={nextDare}>Siguiente Reto</button>} */}
+    </div>
+  );
 };
 
 export default Prueba2;
