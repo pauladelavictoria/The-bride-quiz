@@ -24,7 +24,7 @@ const Prueba1 = (props) => {
   };
 
 
-  
+  // Tener dos funciones que hagan una el render de la prueba y otra el final y poner con esas dos funciones un ternario en el return
 
   // Final de las pruebas
   const finalDare = () => {
@@ -66,6 +66,7 @@ const Prueba1 = (props) => {
       );
     } else {
       return (
+        // el return en APP en un componente
         <div className="container">
           <p className="finalText">¡Has llegado al final del juego!</p>
         </div>
@@ -77,35 +78,6 @@ const Prueba1 = (props) => {
     <div>
       <Header />
       {finalDare()}
-      {/* <Header/>
-      <div className="container">
-        <h2 className="container_questions">
-          {questions[currentQuestion].questionText}
-        </h2>
-
-        <div className="container_answers">
-        {questions[currentQuestion].answerOptions.map((answerOption, index) => {
-          return (
-            <button
-              key={index}
-              id={index}
-              onClick={showCorrect}
-              className="container_answers"
-            >
-              {answerOption.answer}
-            </button>
-          );
-        })}
-
-        {correctAnswer !== undefined &&
-          (correctAnswer ? (
-            <p>¡Correcto! Escoge quien quieres que beba un chupito </p>
-          ) : (
-            <p>Oh... Has fallado, te toca beber un chupito</p>
-          ))}
-</div>
-        <button className="nextBtn" onClick={nextDare}>Siguiente pregunta</button>
-      </div> */}
     </div>
   );
 };

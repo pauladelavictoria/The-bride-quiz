@@ -5,7 +5,7 @@ import truthsOrDares from "../../data/truthsOrDares";
 import Header from "../Header";
 
 
-const Prueba2 = () => {
+const Prueba2 = (props) => {
   // variables estado
   const [currentDare, setCurrentDare] = useState(0);
 
@@ -28,16 +28,18 @@ const Prueba2 = () => {
     setCurrentDare(currentDare + 1);
     setShowTrue(false);
     setShowDare(false);
+    props.setCurrentPlayer(props.currentPlayer +1);
   };
 
   // Final de la prueba
   console.log(currentDare);
   console.log(truthsOrDares);
 
-  const finalDare = () => {
+  const finalDare = (props) => {
     if (currentDare < truthsOrDares.length) {
       return (
         <div className="container">
+          {props.nextPlayer()} 
           <h2 className="container_title">verdad o atrevimiento</h2>
 
           <button className="container_btn" onClick={renderTrue}>

@@ -1,8 +1,8 @@
 // Hooks
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // Componentes
 import Header from "./Header";
-import { createPlayer, deletePlayer, getPlayers } from "../service/ApiPlayers";
+import { createPlayer, deletePlayer} from "../service/ApiPlayers";
 
 const PlayersPage = (props) => {
   // Variables estado
@@ -13,11 +13,6 @@ const PlayersPage = (props) => {
     setNewPlayerName(ev.currentTarget.value);
   };
 
-  useEffect(() => {
-    getPlayers().then((response) => {
-      props.setPlayers(response);
-    });
-  }, []);
 
   // Eliminar jugadora
   const handleDeletePlayer = (ev) => {

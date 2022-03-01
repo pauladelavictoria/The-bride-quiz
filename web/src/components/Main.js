@@ -5,7 +5,7 @@ import Logo from "../images/logo-big.png";
 import menu from "../images/menu.png";
 import players from "../images/players.png";
 
-const Main = () => {
+const Main = (props) => {
   const [selectedCard, setSelectedCard] = useState(0);
 
   const selectNext = (ev) => {setSelectedCard(selectedCard + 1 > 2 ? 0 : selectedCard + 1)};
@@ -96,6 +96,7 @@ const Main = () => {
             src={players}
             alt="Enlace para añadir jugadoras"
           />
+         {props.numberOfPlayers} 
         </Link>
       </div>
     </div>

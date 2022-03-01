@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // estilos
 import "../style/App.scss";
 // Componentes
@@ -10,16 +10,24 @@ import Main from "./Main";
 import Prueba1 from "./Pruebas/1_Prueba";
 import Prueba2 from "./Pruebas/2_Prueba";
 import Prueba3 from "./Pruebas/3_Prueba";
+import { getPlayers } from "../service/ApiPlayers";
 
 const App = () => {
   // Variables estado playersPage
   const [players, setPlayers] = useState([]);
 
+  // useEffect bbdd players
+  useEffect(() => {
+    getPlayers().then((response) => {
+      setPlayers(response);
+    });
+  }, []);
+
    // variable estado jugadora
    const [currentPlayer, setCurrentPlayer] = useState(0);
   
    const nextPlayer = () => {
-       return (<><h2>Le toca jugar a: {players[currentPlayer].name}  </h2></>)
+       return (players.length > 0) ? <h2>Le toca jugar a: {players[currentPlayer].name}</h2> : ''
    }
 
   return (
@@ -44,7 +52,7 @@ const App = () => {
           <Turn players={players} setPlayers={setPlayers}/>
         </Route>
         <Route path="/" exact>
-          <Main />
+          <Main numberOfPlayers={players.length} />
         </Route>
       </Switch>
     </>

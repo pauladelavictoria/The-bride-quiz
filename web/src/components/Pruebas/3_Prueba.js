@@ -6,7 +6,7 @@ import SolutionLetters from "../Prueba3El/SolutionLetters";
 // API
 import { getWords } from "../../service/ApiWords";
 
-const Prueba3 = () => {
+const Prueba3 = (props) => {
   // Variables estado
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState("");
@@ -68,20 +68,23 @@ const Prueba3 = () => {
   };
 
   // Siguiente palabra
-  const nextWord = () => {
+  const nextWord = (props) => {
     setCurrentWord(currentWord + 1);
+    props.setCurrentPlayer(props.currentPlayer +1);
+
   };
 
   // Final del juego
   console.log(currentWord);
   console.log(words.length);
 
-  const finalDare = () => {
+  const finalDare = (props) => {
     if (currentWord < words.length) {
       return (
         <>
           <main className="container">
             <h1 className="container_title">Ahogada</h1>
+            {props.nextPlayer()} 
 
             <section>
               <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
