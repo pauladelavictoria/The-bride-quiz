@@ -3,6 +3,7 @@ import { useState } from "react";
 // Componentes
 import Header from "../Header";
 import questions from "../../data/questions";
+import FinishScreen from "../FinishScreen";
 
 const Prueba1 = (props) => {
   // Preguntas y respuestas
@@ -20,64 +21,52 @@ const Prueba1 = (props) => {
   const nextDare = () => {
     setCurrentQuestion(currentQuestion + 1);
     setCorrectAnwser(undefined);
-    props.setCurrentPlayer(props.currentPlayer +1);
+    props.setCurrentPlayer(props.currentPlayer + 1);
   };
 
-
-  // Tener dos funciones que hagan una el render de la prueba y otra el final y poner con esas dos funciones un ternario en el return
-
   // Final de las pruebas
-  const finalDare = () => {
-    if (currentQuestion < questions.length) {
-      return (
-        <div className="container">
-        {props.nextPlayer()}  
-          <h2 className="container_questions">
-            {questions[currentQuestion].questionText}
-          </h2>
+  const renderGame = () => {
+    return (
+      <div className="container">
+        {props.nextPlayer()}
+        <h2 className="container_questions">
+          {questions[currentQuestion].questionText}
+        </h2>
 
-          <div className="container_answers">
-            {questions[currentQuestion].answerOptions.map(
-              (answerOption, index) => {
-                return (
-                  <button
-                    key={index}
-                    id={index}
-                    onClick={showCorrect}
-                    className="container_answers"
-                  >
-                    {answerOption.answer}
-                  </button>
-                );
-              }
-            )}
+        <div className="container_answers">
+          {questions[currentQuestion].answerOptions.map(
+            (answerOption, index) => {
+              return (
+                <button
+                  key={index}
+                  id={index}
+                  onClick={showCorrect}
+                  className="container_answers"
+                >
+                  {answerOption.answer}
+                </button>
+              );
+            }
+          )}
 
-            {correctAnswer !== undefined &&
-              (correctAnswer ? (
-                <p>¡Correcto! Escoge quien quieres que beba un chupito </p>
-              ) : (
-                <p>Oh... Has fallado, te toca beber un chupito</p>
-              ))}
-          </div>
-          <button className="nextBtn" onClick={nextDare}>
-            Siguiente pregunta
-          </button>
+          {correctAnswer !== undefined &&
+            (correctAnswer ? (
+              <p>¡Correcto! Escoge quien quieres que beba un chupito </p>
+            ) : (
+              <p>Oh... Has fallado, te toca beber un chupito</p>
+            ))}
         </div>
-      );
-    } else {
-      return (
-        // el return en APP en un componente
-        <div className="container">
-          <p className="finalText">¡Has llegado al final del juego!</p>
-        </div>
-      );
-    }
+        <button className="nextBtn" onClick={nextDare}>
+          Siguiente pregunta
+        </button>
+      </div>
+    );
   };
 
   return (
     <div>
       <Header />
-      {finalDare()}
+      {currentQuestion < props.players.length ? renderGame() : <FinishScreen />}
     </div>
   );
 };
