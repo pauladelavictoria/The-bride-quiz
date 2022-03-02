@@ -32,7 +32,7 @@ const Prueba2 = (props) => {
   };
 
   //Función para pintar el juego
-  const renderGame = (props) => {
+  const renderGame = () => {
     return (
       <div className="container">
         {props.nextPlayer()}

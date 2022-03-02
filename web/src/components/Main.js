@@ -41,9 +41,9 @@ const Main = (props) => {
         <section className={`containerGame ${classPosition0.current}`}>
           <h2 className="containerGame_title">Juego de la ahogada</h2>
           <p className="containerGame_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus
+          En esta pantalla se escoge una palabra aleatoria y una pista. <br />
+          Se trata de adivinar la palabra antes de consumir el número máximo de
+          errores.
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba3">
             <button className="containerGame_btn">Jugar</button>
@@ -53,9 +53,9 @@ const Main = (props) => {
         <section className={`containerGame ${classPosition1.current}`}>
           <h2 className="containerGame_title">¿Cuánto sabes sobre bodas?</h2>
           <p className="containerGame_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus
+          En esta pantalla aparece una pregunta con tres posibles opciones.
+          <br />
+          Se trata de adivinar cuál es la correcta. 
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba1">
             <button className="containerGame_btn">Jugar</button>
@@ -65,9 +65,9 @@ const Main = (props) => {
         <section className={`containerGame ${classPosition2.current}`}>
           <h2 className="containerGame_title">Verdad o Atrevimiento</h2>
           <p className="containerGame_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            velit nulla tempore labore, exercitationem dignissimos assumenda
-            rerum doloremque maxime a delectus
+          En esta pantalla hay que escoger entre contar una verdad o atreverse
+          con un reto. <br />
+          Pulsa el botón que prefieras para que aparezca tu verdad o reto.
           </p>
           <Link className="Prueba_link" to="/Pruebas/Prueba2">
             <button className="containerGame_btn">Jugar</button>

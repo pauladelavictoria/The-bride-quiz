@@ -36,10 +36,14 @@ const App = () => {
           <Prueba1 nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} numberOfPlayers={players.length}/>
         </Route>
         <Route path="/Pruebas/Prueba2" exact>
-          <Prueba2 nextPlayer={nextPlayer} numberOfPlayers={players.length}/>
+          <Prueba2 nextPlayer={nextPlayer} numberOfPlayers={players.length} setCurrentPlayer={setCurrentPlayer}
+          currentPlayer={currentPlayer}/>
+          
         </Route>
         <Route path="/Pruebas/Prueba3" exact>
-          <Prueba3 nextPlayer={nextPlayer} numberOfPlayers={players.length}/>
+          <Prueba3 nextPlayer={nextPlayer} numberOfPlayers={players.length}
+          setCurrentPlayer={setCurrentPlayer}
+          currentPlayer={currentPlayer}/>
         </Route>
         <Route path="/playersPage" exact>
           <PlayersPage players={players} setPlayers={setPlayers} />
