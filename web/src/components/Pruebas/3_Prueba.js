@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Dummy from "../Prueba3El/dummy";
 import Header from "../Header";
 import SolutionLetters from "../Prueba3El/SolutionLetters";
+import FinishScreen from "../FinishScreen";
 // API
 import { getWords } from "../../service/ApiWords";
 
@@ -74,12 +75,8 @@ const Prueba3 = (props) => {
 
   };
 
-  // Final del juego
-  console.log(currentWord);
-  console.log(words.length);
-
-  const finalDare = (props) => {
-    if (currentWord < words.length) {
+  //Función para pintar el juego
+  const renderGame = (props) => {
       return (
         <>
           <main className="container">
@@ -130,66 +127,13 @@ const Prueba3 = (props) => {
           </div>
         </>
       );
-    } else {
-      return (
-        <div>
-          <p className="finalText">¡Has llegado al final del juego!</p>
-        </div>
-      );
-    }
   };
 
   return (
     <div className="page">
       <Header />
-      {finalDare()}
-      {/* <main className="container">
-        <h1 className="container_title">Ahogada</h1>
-
-        <section>
-          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
-
-          <form className="form">
-            <input
-              autoComplete="off"
-              className="form__input"
-              maxLength="1"
-              autoFocus
-              type="text"
-              name="last-letter"
-              id="last-letter"
-              onChange={handleKeyUp}
-              value={lastLetter}
-            />
-          </form>
-        </section>
-        <Dummy numberOfErrors={numberOfErrors} />
-      </main>
-      <div className="error">
-        <div className="error_flex">
-          <h2 className="error_title">Letras falladas:</h2>
-          <ul className="error_letters">
-            {arrayNotInclude.map((eachLetter, index) => {
-              return (
-                <li key={index} className="error_letter">
-                  {eachLetter}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <button onClick={toggleShowClue} className="clueBtn">
-          Pista!
-        </button>
-        {showClue && (<p className="container_text">
-            {words[currentWord]?.clue}
-            </p>)}
-        <button onClick={nextWord} className="clueBtn">
-          Siguiente palabra
-        </button> 
-       
-      </div> */}
-    </div>
+      {(currentWord < props.numberOfPlayers) ? renderGame() : <FinishScreen />}
+     </div>
   );
 };
 

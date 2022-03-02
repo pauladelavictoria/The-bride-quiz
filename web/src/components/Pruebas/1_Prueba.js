@@ -24,7 +24,7 @@ const Prueba1 = (props) => {
     props.setCurrentPlayer(props.currentPlayer + 1);
   };
 
-  // Final de las pruebas
+  //Función para pintar el juego
   const renderGame = () => {
     return (
       <div className="container">
@@ -66,7 +66,7 @@ const Prueba1 = (props) => {
   return (
     <div>
       <Header />
-      {currentQuestion < props.players.length ? renderGame() : <FinishScreen />}
+      {currentQuestion < props.numberOfPlayers ? renderGame() : <FinishScreen />}
     </div>
   );
 };

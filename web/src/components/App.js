@@ -5,7 +5,6 @@ import "../style/App.scss";
 // Componentes
 import PlayersPage from "./PlayersPage";
 import Instructions from "./Instructions";
-import Turn from "./Turn";
 import Main from "./Main";
 import Prueba1 from "./Pruebas/1_Prueba";
 import Prueba2 from "./Pruebas/2_Prueba";
@@ -34,22 +33,19 @@ const App = () => {
     <>
       <Switch>
         <Route path="/Pruebas/Prueba1" exact>
-          <Prueba1 nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}/>
+          <Prueba1 nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} numberOfPlayers={players.length}/>
         </Route>
         <Route path="/Pruebas/Prueba2" exact>
-          <Prueba2 nextPlayer={nextPlayer}/>
+          <Prueba2 nextPlayer={nextPlayer} numberOfPlayers={players.length}/>
         </Route>
         <Route path="/Pruebas/Prueba3" exact>
-          <Prueba3 nextPlayer={nextPlayer}/>
+          <Prueba3 nextPlayer={nextPlayer} numberOfPlayers={players.length}/>
         </Route>
         <Route path="/playersPage" exact>
           <PlayersPage players={players} setPlayers={setPlayers} />
         </Route>
         <Route path="/Instructions" exact>
           <Instructions />
-        </Route>
-        <Route path="/Turn" exact>
-          <Turn players={players} setPlayers={setPlayers}/>
         </Route>
         <Route path="/" exact>
           <Main numberOfPlayers={players.length} />
