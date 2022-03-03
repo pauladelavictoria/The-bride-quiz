@@ -8,4 +8,7 @@ const FinishScreen = () => {
   
 };
 
+// PASAR POR PROPS EL NÚMERO DE JUGADORAS PARA QUE AL INICIO QUE HAY CERO 
+// SIGA SALIENDO LA PANTALLA DEL JUEGO CON UN AVISO
+
 export default FinishScreen;

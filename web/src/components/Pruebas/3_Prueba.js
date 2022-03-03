@@ -75,7 +75,7 @@ const Prueba3 = (props) => {
   console.log(props.player);
   console.log(props.currentPlayer);
   //Función para pintar el juego
-  const renderGame = (props) => {
+  const renderGame = () => {
       return (
         <>
         {props.nextPlayer()} 

@@ -1,21 +1,30 @@
+.error-0 {
+  background-image: url("../../../images/0@2x.png");
+}
+.error-1 {
+  background-image: url("../../../images/1@2x.png");
+}
 
-  .error-1 {
-    background-image: url('../../../images/1@2x.png');
-  }
+.error-2 {
+  background-image: url("../../../images/2@2x.png");
+}
 
-  .error-2 {
-    background-image: url('../../../images/2@2x.png');
-  }
+.error-3 {
+  background-image: url("../../../images/3@2x.png");
+}
 
-  .error-3 {
-    background-image: url('../../../images/3@2x.png');
-  }
+.error-4 {
+  background-image: url("../../../images/4@2x.png");
+}
 
-  .error-4 {
-    background-image: url('../../../images/4@2x.png');
-  }
+.error-5 {
+  background-image: url("../../../images/5@2x.png");
+}
 
-  .error-5 {
-    background-image: url('../../../images/5@2x.png');
-  }
-
+.error_image {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
