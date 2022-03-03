@@ -1,143 +1,21 @@
-$dummyEnabledColor:black;
-$dummyDisabledColor: rgba(255, 255, 255, 0.2);
-$dummyTransitionTime: 1s;
-
-.dummy {
-  margin-left: 4rem;
-  position: relative;
-  min-width: 15rem;
-  height: 25rem;
-
-  .line {
-    position: absolute;
-    display: block;
-    height: 0.5rem;
-    background-color: $dummyDisabledColor;
-    border-radius: 0.25rem;
-    transition: background-color $dummyTransitionTime ease;
-  }
-
-  .head {
-    position: absolute;
-    display: block;
-    width: 3.5rem;
-    height: 3.5rem;
-    border: 0.5rem solid $dummyDisabledColor;
-    border-radius: 50%;
-    transition: border $dummyTransitionTime ease;
-  }
-
-  .eye {
-    position: absolute;
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: $dummyDisabledColor;
-    transition: color $dummyTransitionTime ease;
-    &::before {
-      content: '×';
-    }
-  }
 
   .error-1 {
-    width: 10rem;
-    left: 50px;
-    bottom: 0;
+    background-image: url('../../../images/1@2x.png');
   }
 
   .error-2 {
-    transform: rotate(80deg);
-    width: 15rem;
-    top: 17.3rem;
-    left: -5.4rem;
+    background-image: url('../../../images/2@2x.png');
   }
 
   .error-3 {
-    transform: rotate(-80deg);
-    width: 15rem;
-    top: 17.3rem;
-    left: 6.8rem;
+    background-image: url('../../../images/3@2x.png');
   }
 
   .error-4 {
-    transform: rotate(180deg);
-    width: 15.5rem;
-    top: 10rem;
-    left: 0.5rem;
+    background-image: url('../../../images/4@2x.png');
   }
 
   .error-5 {
-    transform: rotate(110deg);
-    width: 6rem;
-    top: 7.4rem;
-    left: 8.5rem;
+    background-image: url('../../../images/5@2x.png');
   }
 
-  .error-6 {
-    transform: rotate(180deg);
-    width: 10.2rem;
-    height: 1.3rem;
-    top: 24.2rem;
-    left: 3.1rem;  }
-
-  .error-7 {
-    transform: rotate(110deg);
-    width: 6rem;
-    top: 7.4rem;
-    left: 7.5rem;
-  }
-
-  .error-8 {
-    transform: rotate(130deg);
-    width: 3rem;
-    top: 3rem;
-    left: 9.75rem;
-  }
-
-  .error-9 {
-    transform: rotate(120deg);
-    width: 3rem;
-    top: 13.5rem;
-    left: 8.25rem;
-  }
-
-  .error-10 {
-    transform: rotate(60deg);
-    width: 4rem;
-    top: 18rem;
-    left: 9.5rem;
-  }
-
-  .error-11 {
-    transform: rotate(120deg);
-    width: 4rem;
-    top: 18rem;
-    left: 7.5rem;
-  }
-
-  .error-12 {
-    top: 7.5rem;
-    left: 9.5rem;
-  }
-
-  .error-13 {
-    top: 7.5rem;
-    left: 10.5rem;
-  }
-
-  // https://sass-lang.com/documentation/at-rules/control/for
-  @for $e from 1 through 13 {
-    @for $s from 1 through $e {
-      &.error-#{$e} {
-        .error-#{$s}.line {
-          background-color: $dummyEnabledColor;
-        }
-        .error-#{$s}.head {
-          border-color: $dummyEnabledColor;
-        }
-        .error-#{$s}.eye {
-          color: $dummyEnabledColor;
-        }
-      }
-    }
-  }
-}

@@ -35,6 +35,69 @@ const questions = [
             { answer: "Para llamar a la fertidilidad", isCorrect: true },
           ],
         },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
+        {
+          questionText: "¿Por qué se lanza arroz?",
+          answerOptions: [
+            { answer: "Es pequeño y no hace daño", isCorrect: false },
+            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            
+            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+          ],
+        },
       ];
 
       

@@ -8,7 +8,7 @@
 // logo
 .logoBig {
   width: 40%;
-  margin: 20px auto;
+  margin: 20px auto 10px auto;
 }
 
 // Links
@@ -17,9 +17,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 60px auto;
+  margin: 30px auto;
   &_menu {
     width: 30px;
+    &-number {
+      padding: 2px;
+      color: $mainTextColor;
+      float: right;
+    }
   }
 }
 
@@ -28,28 +33,31 @@
   @include flexColumn;
   position: absolute;
   background-color: white;
-  width: 200px;
-  height: 250px;
+  width: 270px;
+  height: 320px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 5px 5px 15px 6px rgba(0, 0, 0, 0.2);
   transition: transform 300ms linear;
   &_title {
-    font-size: 20px;
+    font-size: 30px;
+    margin-top: 15px;
+    font-weight: bold;
     text-align: center;
     color: $mainTextColor;
   }
   &_text {
     margin: 20px auto;
-    font-size: 10px;
+    font-size: 15px;
     color: rgb(169, 166, 166);
     text-align: center;
     flex: 1;
   }
   &_btn {
-   @include btn;
-   padding: 5px 10px;
+    @include btn;
+    padding: 5px 10px;
+    margin-bottom: 5px;
   }
 }
 
@@ -68,7 +76,7 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
   );
-  transform: rotate(-15deg) translate(-150px, 10px);
+  transform: rotate(-15deg) translate(-150px, -15px);
 }
 
 .containerGame.right {
@@ -76,12 +84,14 @@
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
   );
-  transform: rotate(15deg) translate(150px, 10px);
+  transform: rotate(15deg) translate(150px, -15px);
 }
 
+// Selectores para pasar tarjetas de juego
 .selectBtn {
   font-size: 30px;
   margin: 5px;
   background-color: $mainColor;
   color: $mainTextColor;
+  font-weight: bold;
 }

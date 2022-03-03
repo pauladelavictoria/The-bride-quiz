@@ -12,6 +12,9 @@
 // MAIN
 @import './sass/main';
 
+//FINISH SCREEN
+@import './sass/finishScreen';
+
 // INSTRUCTIONS
 @import './sass/instructions';
 
@@ -24,9 +27,7 @@
 // PRUEBA3
 @import './sass/Prueba3/app';
 @import './sass/Prueba3/dummy';
-@import './sass/Prueba3/footer';
-@import './sass/Prueba3/form';
 @import './sass/Prueba3/header';
-@import './sass/Prueba3/instructions';
 @import './sass/Prueba3/letters';
-@import './sass/Prueba3/loading';
+
+

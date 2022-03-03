@@ -50,8 +50,6 @@ const Prueba3 = (props) => {
           setuserLetters([...userLetters, inputLetter]);
         } else {
           setArrayNotInclude([...arrayNotInclude, inputLetter]);
-          console.log(arrayNotInclude);
-          console.log("la letra no está");
           setNumberOfErrors(numberOfErrors + 1);
         }
       }
@@ -71,17 +69,20 @@ const Prueba3 = (props) => {
   // Siguiente palabra
   const nextWord = (props) => {
     setCurrentWord(currentWord + 1);
-    props.setCurrentPlayer(props.currentPlayer +1);
-
+    props.setCurrentPlayer(props.currentPlayer + 1);
   };
 
+  console.log(props.player);
+  console.log(props.currentPlayer);
   //Función para pintar el juego
   const renderGame = (props) => {
       return (
         <>
+        {props.nextPlayer()} 
           <main className="container">
+          
             <h1 className="container_title">Ahogada</h1>
-            {props.nextPlayer()} 
+           
 
             <section>
               <SolutionLetters renderSolutionLetters={renderSolutionLetters} />

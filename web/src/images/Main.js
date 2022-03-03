@@ -96,7 +96,7 @@ const Main = (props) => {
             src={players}
             alt="Enlace para añadir jugadoras"
           />
-        <p className="containerBtn_menu-number"> {props.numberOfPlayers} </p>
+         {props.numberOfPlayers} 
         </Link>
       </div>
     </div>

@@ -1,0 +1,16 @@
+.finishContainer{
+@include flexColumn;
+margin: 50px;
+font-size: 20px;
+text-align: center;
+
+    &_text{
+color: $mainTextColor;
+font-size: 20px;
+margin: 25px auto;
+&-btn{
+    color: $btnColor;
+}
+    }
+}
+

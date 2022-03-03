@@ -23,6 +23,34 @@ const truthsOrDares = [
     truth: " ¿ Cuál era tu amor de la infancia?",
     dare: "     Sirve las copas de todo el mundo durante toda la noche",
   },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
+  {
+    truth: " ¿ Cuál era tu amor de la infancia?",
+    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+  },
 ];
 
 export default truthsOrDares;
