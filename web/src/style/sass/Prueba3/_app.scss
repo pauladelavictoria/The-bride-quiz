@@ -19,3 +19,10 @@
   font-size: 10px;
   color: rgb(169, 166, 166);
 }
+
+// Error final
+.final{
+  margin-top: 50px;
+  @include flexColumn;
+  text-align: center;
+}
