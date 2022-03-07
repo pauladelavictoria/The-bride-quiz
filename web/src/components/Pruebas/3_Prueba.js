@@ -133,7 +133,7 @@ const Prueba3 = (props) => {
   return (
     <div className="page">
       <Header />
-      {(currentWord < props.numberOfPlayers) ? renderGame() : <FinishScreen />}
+      {(currentWord < props.numberOfPlayers) ? renderGame() : <FinishScreen players={props.players}/>}
      </div>
   );
 };

@@ -1,16 +1,37 @@
-.finishContainer{
-@include flexColumn;
-margin: 50px;
-font-size: 20px;
-text-align: center;
+.finishContainer {
+  @include flexColumn;
+  margin: 50px;
+  font-size: 20px;
+  text-align: center;
 
-    &_text{
-color: $mainTextColor;
-font-size: 20px;
-margin: 25px auto;
-&-btn{
-    color: $btnColor;
-}
+  &_text {
+    color: $mainTextColor;
+    font-size: 20px;
+    margin: 25px auto;
+    &-btn {
+      color: $btnColor;
     }
+  }
 }
+
+
+.addplayers{
+  @include flexColumn;
+  justify-content: center;
+  &_text {
+    text-align: center;
+    color: $btnColor;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 50px;
+  }
+  &_link{
+    width: 50px;
+    
+  }
+}
+
+
+
+
 

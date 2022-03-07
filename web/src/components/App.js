@@ -29,19 +29,24 @@ const App = () => {
        return (players?.length > 0) ? <h2>Le toca jugar a: {players[currentPlayer].name}</h2> : ''
    }
 
+
   return (
     <>
       <Switch>
         <Route path="/Pruebas/Prueba1" exact>
-          <Prueba1 nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} numberOfPlayers={players.length}/>
+          <Prueba1 
+          players={players}
+          nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} numberOfPlayers={players.length}/>
         </Route>
         <Route path="/Pruebas/Prueba2" exact>
-          <Prueba2 nextPlayer={nextPlayer} numberOfPlayers={players.length} setCurrentPlayer={setCurrentPlayer}
+          <Prueba2 players={players}
+          nextPlayer={nextPlayer} numberOfPlayers={players.length} setCurrentPlayer={setCurrentPlayer}
           currentPlayer={currentPlayer}/>
           
         </Route>
         <Route path="/Pruebas/Prueba3" exact>
-          <Prueba3 nextPlayer={nextPlayer} numberOfPlayers={players.length}
+          <Prueba3 players={players}
+          nextPlayer={nextPlayer} numberOfPlayers={players.length}
           setCurrentPlayer={setCurrentPlayer}
           currentPlayer={currentPlayer}/>
         </Route>

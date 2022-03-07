@@ -64,7 +64,7 @@ const Prueba2 = (props) => {
   return (
     <div className="container">
       <Header />
-      {currentDare < props.numberOfPlayers ? renderGame() : <FinishScreen />}
+      {currentDare < props.numberOfPlayers ? renderGame() : <FinishScreen players={props.players} />}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 // Imágenes
@@ -6,6 +7,8 @@ import menu from "../images/menu.png";
 import players from "../images/players.png";
 
 const Main = (props) => {
+
+  // Carrusel tarjetas
   const [selectedCard, setSelectedCard] = useState(0);
 
   const selectNext = (ev) => {setSelectedCard(selectedCard + 1 > 2 ? 0 : selectedCard + 1)};
@@ -30,6 +33,7 @@ const Main = (props) => {
     }
 
     }, [selectedCard]);
+
 
   return (
     <div className="main">
