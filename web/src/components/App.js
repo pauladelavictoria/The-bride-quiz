@@ -26,7 +26,7 @@ const App = () => {
    const [currentPlayer, setCurrentPlayer] = useState(0);
   
    const nextPlayer = () => {
-       return (players?.length > 0) ? <h2>Le toca jugar a: {players[currentPlayer].name}</h2> : ''
+       return (players?.length > 0) ? <div className="turn" ><h2 className="turn_text">Turno de </h2><p className="turn_player">{players[currentPlayer].name}</p></div> : ''
    }
 
 

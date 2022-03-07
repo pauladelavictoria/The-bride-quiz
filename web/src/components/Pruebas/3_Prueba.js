@@ -69,11 +69,27 @@ const Prueba3 = (props) => {
   // Siguiente palabra
   const nextWord = (props) => {
     setCurrentWord(currentWord + 1);
+    setNumberOfErrors(0);
     props.setCurrentPlayer(props.currentPlayer + 1);
   };
 
-  console.log(props.player);
-  console.log(props.currentPlayer);
+console.log(numberOfErrors)
+   const maxError = () => {
+     if (numberOfErrors === 5) {
+       return (
+         <>
+        <Dummy numberOfErrors={numberOfErrors} />
+        <p className="finishContainer_text">Oh! Has perdido, bebe un chupito y pasa el móvil a la siguiente</p>
+        <button onClick={nextWord} className="clueBtn">
+              Siguiente palabra
+            </button>
+        </>
+       )
+     } else {
+       return (renderGame())
+     }
+   }
+  
   //Función para pintar el juego
   const renderGame = () => {
       return (
@@ -122,9 +138,6 @@ const Prueba3 = (props) => {
             {showClue && (
               <p className="container_text">{words[currentWord]?.clue}</p>
             )}
-            <button onClick={nextWord} className="clueBtn">
-              Siguiente palabra
-            </button>
           </div>
         </>
       );
@@ -133,7 +146,7 @@ const Prueba3 = (props) => {
   return (
     <div className="page">
       <Header />
-      {(currentWord < props.numberOfPlayers) ? renderGame() : <FinishScreen players={props.players}/>}
+      {(currentWord < props.numberOfPlayers) ? maxError() : <FinishScreen players={props.players}/>}
      </div>
   );
 };

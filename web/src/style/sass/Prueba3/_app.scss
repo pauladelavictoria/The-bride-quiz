@@ -1,11 +1,21 @@
-
 .container {
   margin: 10px 15px;
- display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  &_title{
+  &_title {
     color: $mainTextColor;
   }
+}
+
+// Botón pista y siguiente palabra
+.clueBtn {
+  @include btn;
+  font-size: 10px;
+}
+
+.container_text {
+  font-size: 10px;
+  color: rgb(169, 166, 166);
 }
