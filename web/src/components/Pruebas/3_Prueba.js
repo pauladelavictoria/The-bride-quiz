@@ -6,6 +6,7 @@ import SolutionLetters from "../Prueba3El/SolutionLetters";
 import FinishScreen from "../FinishScreen";
 // API
 import { getWords } from "../../service/ApiWords";
+import NextPlayer from "../NextPlayer";
 
 const Prueba3 = (props) => {
   // Variables estado
@@ -20,25 +21,13 @@ const Prueba3 = (props) => {
 
   // useEffect para traer las palabras y pistas de la bbdd al cargar la página
   useEffect(() => {
+    props.setCurrentPlayer(0);
     getWords().then((response) => {
       setWords(response);
     });
   }, []);
 
-  // Función para letras acertadas
-  const renderSolutionLetters = (index) => {
-    const wordLetters = words[currentWord]?.word.split("");
-
-    return wordLetters?.map((wordLetter) => {
-      return userLetters.includes(wordLetter) ? (
-        <li key={index} className="letter">
-          {wordLetter}
-        </li>
-      ) : (
-        <li key={index} className="letter"></li>
-      );
-    });
-  };
+  
 
   // Función manejadora del estado
   const handleKeyUp = (ev) => {
@@ -67,10 +56,11 @@ const Prueba3 = (props) => {
   };
 
   // Siguiente palabra
-  const nextWord = (props) => {
+  const nextWord = () => {
     setCurrentWord(currentWord + 1);
     setNumberOfErrors(0);
     setArrayNotInclude([]);
+    setuserLetters([]);
     setShowClue(false);
     props.setCurrentPlayer(props.currentPlayer + 1);
   };
@@ -78,34 +68,30 @@ const Prueba3 = (props) => {
   // Función para mostrar e botón de siguiente palabra
   // cuando se llega a 5 fallos y se pierde el juego
   const maxError = () => {
-    if (numberOfErrors === 5) {
-      return (
-        <div className="final">
-          <Dummy numberOfErrors={numberOfErrors} />
-          <p className="finishContainer_text final_text">
-            Oh! Has perdido, bebe un chupito y pasa el móvil a la siguiente
-          </p>
-          <button onClick={nextWord} className="final_btn clueBtn">
-            Siguiente palabra
-          </button>
-        </div>
-      );
-    } else {
-      return renderGame();
-    }
+    return (
+      <div className="final">
+        <Dummy numberOfErrors={numberOfErrors} />
+        <p className="finishContainer_text final_text">
+          Oh! Has perdido, bebe un chupito y pasa el móvil a la siguiente
+        </p>
+        <button onClick={nextWord} className="final_btn clueBtn">
+          Siguiente palabra
+        </button>
+      </div>
+    );
   };
 
   //Función para pintar el juego
   const renderGame = () => {
     return (
       <>
-        {props.nextPlayer()}
+        <NextPlayer players={props.players} currentPlayer={props.currentPlayer}/>
         <main className="container">
           <h1 className="container_title">Ahogada</h1>
 
           <section>
-            <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
-
+            <SolutionLetters word={words[currentWord]?.word} 
+            userLetters={userLetters} />
             <form className="form">
               <input
                 autoComplete="off"
@@ -146,14 +132,34 @@ const Prueba3 = (props) => {
     );
   };
 
+  const getMainComponent = () => {
+    if (currentWord < props.numberOfPlayers) {
+      if (numberOfErrors === 5) {
+        return maxError();
+      } else {
+        const wordLetters = words[currentWord]?.word.split("");
+        if (wordLetters?.every((letter) => userLetters.includes(letter))) {
+          return (
+            <>
+              <p>Hs ganao</p>
+              <button onClick={nextWord} className="final_btn clueBtn">
+                Siguiente palabra
+              </button>
+            </>
+          );
+        } else {
+          return renderGame();
+        }
+      }
+    } else {
+      return <FinishScreen players={props.players} />;
+    }
+  };
+
   return (
     <div className="page">
       <Header />
-      {currentWord < props.numberOfPlayers ? (
-        maxError()
-      ) : (
-        <FinishScreen players={props.players} />
-      )}
+      {getMainComponent()}
     </div>
   );
 };

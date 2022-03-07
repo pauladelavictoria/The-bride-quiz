@@ -5,7 +5,7 @@ const FinishScreen = (props) => {
   console.log(props.players.length);
   return (
     <>
-      {props.players.length === 0 ? (
+      {props.players?.length === 0 ? (
         <div className="addplayers">
           <h2 className="addplayers_text">
             Añade el nombre de las jugadoras antes de comenzar

@@ -1,9 +1,10 @@
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Componentes
 import truthsOrDares from "../../data/truthsOrDares";
 import Header from "../Header";
 import FinishScreen from "../FinishScreen";
+import NextPlayer from "../NextPlayer";
 
 const Prueba2 = (props) => {
   // variables estado
@@ -11,6 +12,10 @@ const Prueba2 = (props) => {
 
   // Mostrar verdad
   const [showTruth, setShowTrue] = useState(false);
+
+  useEffect(() => {
+    props.setCurrentPlayer(0);
+  }, []);
 
   const renderTrue = () => {
     setShowTrue(!showTruth);
@@ -35,7 +40,7 @@ const Prueba2 = (props) => {
   const renderGame = () => {
     return (
       <div className="container">
-        {props.nextPlayer()}
+        <NextPlayer players={props.players} currentPlayer={props.currentPlayer}/>
         <h2 className="container_title">verdad o atrevimiento</h2>
 
         <button className="container_btn" onClick={renderTrue}>

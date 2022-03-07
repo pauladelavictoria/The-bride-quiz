@@ -22,33 +22,35 @@ const App = () => {
     });
   }, []);
 
-   // variable estado jugadora
-   const [currentPlayer, setCurrentPlayer] = useState(0);
-  
-   const nextPlayer = () => {
-       return (players?.length > 0) ? <div className="turn" ><h2 className="turn_text">Turno de </h2><p className="turn_player">{players[currentPlayer].name}</p></div> : ''
-   }
-
+  // variable estado jugadora
+  const [currentPlayer, setCurrentPlayer] = useState(0);
 
   return (
     <>
       <Switch>
         <Route path="/Pruebas/Prueba1" exact>
-          <Prueba1 
-          players={players}
-          nextPlayer={nextPlayer} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} numberOfPlayers={players.length}/>
+          <Prueba1
+            players={players}
+            numberOfPlayers={players.length}
+            currentPlayer={currentPlayer}
+            setCurrentPlayer={setCurrentPlayer}
+          />
         </Route>
         <Route path="/Pruebas/Prueba2" exact>
-          <Prueba2 players={players}
-          nextPlayer={nextPlayer} numberOfPlayers={players.length} setCurrentPlayer={setCurrentPlayer}
-          currentPlayer={currentPlayer}/>
-          
+          <Prueba2
+            players={players}
+            numberOfPlayers={players.length}
+            currentPlayer={currentPlayer}
+            setCurrentPlayer={setCurrentPlayer}
+          />
         </Route>
         <Route path="/Pruebas/Prueba3" exact>
-          <Prueba3 players={players}
-          nextPlayer={nextPlayer} numberOfPlayers={players.length}
-          setCurrentPlayer={setCurrentPlayer}
-          currentPlayer={currentPlayer}/>
+          <Prueba3
+            players={players}
+            numberOfPlayers={players.length}
+            currentPlayer={currentPlayer}
+            setCurrentPlayer={setCurrentPlayer}
+          />
         </Route>
         <Route path="/playersPage" exact>
           <PlayersPage players={players} setPlayers={setPlayers} />

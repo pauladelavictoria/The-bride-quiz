@@ -1,13 +1,18 @@
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Componentes
 import Header from "../Header";
 import questions from "../../data/questions";
 import FinishScreen from "../FinishScreen";
+import NextPlayer from "../NextPlayer";
 
 const Prueba1 = (props) => {
   // Preguntas y respuestas
   const [correctAnswer, setCorrectAnwser] = useState(undefined);
+
+  useEffect(() => {
+    props.setCurrentPlayer(0);
+  }, []);
 
   // Resultados
   const showCorrect = (ev) => {
@@ -28,7 +33,7 @@ const Prueba1 = (props) => {
   const renderGame = () => {
     return (
       <div className="container">
-        {props.nextPlayer()}
+        <NextPlayer players={props.players} currentPlayer={props.currentPlayer}/>
         <h2 className="container_questions">
           {questions[currentQuestion].questionText}
         </h2>
