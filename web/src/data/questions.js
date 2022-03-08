@@ -36,66 +36,66 @@ const questions = [
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué se corta la tarta?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Es un símbolo de abundancia", isCorrect: false },
+            { answer: "Simboliza un nuevo comienzo", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Es un símbolo de unión", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué se hace el baile de apertura?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Para animar a los invitados", isCorrect: false },
+            { answer: "Para hacer la primera cosa juntos", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Para dar paso a la fiesta", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Qué pasa si te toca el ramp?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Te tocan 20000 euros", isCorrect: false },
+            { answer: "Serás la próxima en casarte", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Nada, y te toca sujetar el ramo toda la fiesta", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué se sortea la liga de la novia?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Da buena suertes", isCorrect: false },
+            { answer: "Para ver quién es la próxima en casarse", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Para recaudar dinero", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué no deben verse los novios antes de la boda?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Porque no se puede consumar antes del marimonio", isCorrect: false },
+            { answer: "Por si la novia se arrepiente", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Da mala suerte", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué se lleva un vestido blanco?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Es el color que más favorece", isCorrect: false },
+            { answer: "Simboliza la inocencia", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Lo puso de moda la reina Victoria en su boda", isCorrect: true },
           ],
         },
         {
-          questionText: "¿Por qué se lanza arroz?",
+          questionText: "¿Por qué se lleva un velo?",
           answerOptions: [
-            { answer: "Es pequeño y no hace daño", isCorrect: false },
-            { answer: "Simboliza que ese día se puede derrochar", isCorrect: false },
+            { answer: "Protege a la novia de las miradas envidiosas", isCorrect: false },
+            { answer: "Para sorprender", isCorrect: false },
             
-            { answer: "Para llamar a la fertidilidad", isCorrect: true },
+            { answer: "Simboliza la pureza", isCorrect: true },
           ],
         },
       ];

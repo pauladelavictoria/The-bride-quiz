@@ -20,36 +20,36 @@ const truthsOrDares = [
     dare: " Publica una foto en la que salgas mal en Instagram  ",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: " ¿Cuál era tu amor de la infancia?",
+    dare: "Sirve las copas de todo el mundo durante toda la noche",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: " ¿Te has acostado con un desconocido?",
+    dare: "Haz una llamada a un amigo tuyo haciéndote pasar por otra persona",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "¿Has tenido sexo en la calle?",
+    dare: "Da una vuelta en ropa interior por la calle",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "Si pudieras ir a cenar con un famoso o una famosa, ¿con quién irías?",
+    dare: "Actúa representando la escena de una película romántica",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "¿Has nadado desnuda?",
+    dare: "Imita a alguien del grupo",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "¿Cuál es tu técnica de seducción?",
+    dare: "Demuestra un talento oculto que tengas",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "¿Cuál es la mayor mentira que has contado?",
+    dare: "Grábate cantando una canción vergonzosa que te guste",
   },
   {
-    truth: " ¿ Cuál era tu amor de la infancia?",
-    dare: "     Sirve las copas de todo el mundo durante toda la noche",
+    truth: "¿Crees que el sexo es imprescindible en una relación de pareja?",
+    dare: "Cuenta un sueño erótico que hayas tenido y que recuerdes",
   },
 ];
 
