@@ -1,3 +1,70 @@
+// import { useState, useEffect } from "react";
+// // Componentes
+// import Header from "../Header";
+// import FinishScreen from "../FinishScreen";
+// import MaxError from "../Prueba3El/MaxError";
+// import WinGame from "../Prueba3El/WinGame";
+// import RenderGame from "../Prueba3El/RenderGame";
+// // API
+// import { getWords } from "../../service/ApiWords";
+
+// const Prueba3 = (props) => {
+//   // Variables estado
+//   const [numberOfErrors, setNumberOfErrors] = useState(0);
+//   const [showClue, setShowClue] = useState(false);
+//   const [words, setWords] = useState([]);
+//   const [currentWord, setCurrentWord] = useState(0);
+//   const [userLetters, setuserLetters] = useState([]);
+//   const [arrayNotInclude, setArrayNotInclude] = useState([]);
+
+//   // useEffect para traer las palabras y pistas de la bbdd al cargar la página
+//   useEffect(() => {
+//     props.setCurrentPlayer(0);
+//     getWords().then((response) => {
+//       setWords(response);
+//     });
+//   }, []);
+
+//   // Siguiente palabra
+//   const nextWord = () => {
+//     setCurrentWord(currentWord + 1);
+//     setNumberOfErrors(0);
+//     setArrayNotInclude([]);
+//     setuserLetters([]);
+//     setShowClue(false);
+//     props.setCurrentPlayer(props.currentPlayer + 1);
+//   };
+
+//   const getMainComponent = () => {
+//     if (currentWord < props.numberOfPlayers) {
+//       if (numberOfErrors === 5) {
+//         return <MaxError nextWord={nextWord} numberOfErrors={numberOfErrors} />;
+//       } else {
+//         const wordLetters = words[currentWord]?.word.split("");
+//         if (wordLetters?.every((letter) => userLetters.includes(letter))) {
+//           return <WinGame nextWord={nextWord} />;
+//         } else {
+//           return <RenderGame words={words} currentWord={currentWord} userLetters={userLetters}  setuserLetters={setuserLetters} arrayNotInclude={arrayNotInclude} setArrayNotInclude={setArrayNotInclude}
+//           numberOfErrors={numberOfErrors}
+//           showClue={showClue}
+//           setShowClue={setShowClue}/>;
+//         }
+//       }
+//     } else {
+//       return <FinishScreen players={props.players}  />;
+//     }
+//   };
+
+//   return (
+//     <div className="page">
+//       <Header />
+//       {getMainComponent()}
+//     </div>
+//   );
+// };
+
+// export default Prueba3;
+
 import { useState, useEffect } from "react";
 // Componentes
 import Dummy from "../Prueba3El/dummy";
