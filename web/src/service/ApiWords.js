@@ -1,6 +1,13 @@
-export const getWords = () => {
-  return fetch("http://localhost:4000/hangmanwords", {
-    method: "GET",
-    headers: { "content-Type": "application/json" },
-  }).then((response) => response.json());
+import { supabase } from './supabase';
+
+export const getWords = async () => {
+  const { data, error } = await supabase
+    .from('hangman')
+    .select('*');
+
+  if (error) {
+    console.error('Error fetching words:', error);
+    return [];
+  }
+  return data;
 };

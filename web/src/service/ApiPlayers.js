@@ -1,26 +1,39 @@
+import { supabase } from './supabase';
 
-export const getPlayers = (data) => {
-    return fetch('http://localhost:4000/players',{
-        method: 'GET',
-        headers: {'content-Type': "application/json"}
-    })
-    .then(response => response.json())
+export const getPlayers = async () => {
+  const { data, error } = await supabase
+    .from('players')
+    .select('*');
+  
+  if (error) {
+    console.error('Error fetching players:', error);
+    return [];
+  }
+  return data;
 };
 
-export const createPlayer = (data) => {
-    return fetch('http://localhost:4000/players',{
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {'content-Type': "application/json"}
-    })
-    .then(response => response.json())
+export const createPlayer = async (playerData) => {
+  const { data, error } = await supabase
+    .from('players')
+    .insert([{ name: playerData.name }])
+    .select();
+
+  if (error) {
+    console.error('Error creating player:', error);
+    return { success: false, playerData: "error" };
+  }
+  return { success: true, playerData: data[0] };
 };
 
-export const deletePlayer = (data) => {
-    return fetch('http://localhost:4000/players',{
-        method: 'DELETE',
-        body: JSON.stringify(data),
-        headers: {'content-Type': "application/json"}
-    })
-    .then(response => response.json())
+export const deletePlayer = async (playerData) => {
+  const { data, error } = await supabase
+    .from('players')
+    .delete()
+    .eq('id', playerData.id);
+
+  if (error) {
+    console.error('Error deleting player:', error);
+    return { error };
+  }
+  return { id: playerData.id };
 };
