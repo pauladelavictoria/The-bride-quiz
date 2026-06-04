@@ -23,6 +23,57 @@
       padding: 0 5px;
     }
   }
+
+  &_group-info {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid $btnColor;
+  }
+
+  &_group-name {
+    font-size: 18px;
+    color: $mainTextColor;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+  }
+
+  &_group-code {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    
+    strong {
+      color: $btnColor;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+  }
+
+  &_start-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+  }
+
+  &_start-btn {
+    @include btn;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 25px;
+    background-color: $mainTextColor;
+    color: white;
+    box-shadow: 0 5px 15px rgba(108, 44, 150, 0.3);
+    border: none;
+    
+    &:hover {
+      background-color: lighten($mainTextColor, 10%);
+    }
+  }
 }
 
 .players_addPlayer {

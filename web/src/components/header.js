@@ -9,7 +9,7 @@ const Header = () => {
         src={logoHeader}
         alt="Logo The Bride Quiz"
       />
-      <Link to="/">
+      <Link to="/games">
         <button className="header_backBtn">  <img
         className="header_backBtn-img"
         src={home}
